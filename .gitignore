@@ -1,0 +1,5 @@
+/.idea/
+/.playwright-mcp/
+/ai.txt
+/coverage/
+/node_modules/

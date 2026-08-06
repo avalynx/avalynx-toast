@@ -1,0 +1,55 @@
+{
+  "name": "avalynx-toast",
+  "title": "AvalynxToast",
+  "description": "AvalynxToast is a simple toast system for web applications. Based on Bootstrap >=5.3 without any framework dependencies.",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "dist/js/avalynx-toast.js",
+  "module": "dist/js/avalynx-toast.esm.js",
+  "style": "dist/css/avalynx-toast.css",
+  "files": [
+    "dist/css/avalynx-toast.css",
+    "dist/js/avalynx-toast.js",
+    "dist/js/avalynx-toast.esm.js"
+  ],
+  "keywords": [
+    "avalynx",
+    "toast",
+    "bootstrap",
+    "bootstrap5",
+    "component",
+    "notification",
+    "popup"
+  ],
+  "ignore": [
+    "package.json"
+  ],
+  "author": {
+    "name": "Juergen Schwind an the AvalynxToast Authors",
+    "url": "https://github.com/avalynx/avalynx-toast/graphs/contributors"
+  },
+  "homepage": "https://github.com/avalynx/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avalynx/avalynx-toast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/avalynx/avalynx-toast/issues"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "shx rm -rf dist; shx mkdir -p dist/js/; shx cp src/js/avalynx-toast.js dist/js/avalynx-toast.js; shx cp src/js/avalynx-toast.js dist/js/avalynx-toast.esm.js; node build.js dist/js/avalynx-toast.esm.js; shx mkdir -p dist/css/; shx cp src/css/avalynx-toast.css dist/css/avalynx-toast.css"
+  },
+  "dependencies": {
+    "bootstrap": ">=5.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "babel-jest": "^30.2.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "shelljs": "^0.10.0",
+    "shx": "^0.4.0"
+  }
+}

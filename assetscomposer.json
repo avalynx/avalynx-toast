@@ -1,0 +1,12 @@
+{
+  "name": "avalynx/avalynx-toast",
+  "files": [
+    "dist/css/avalynx-toast.css",
+    "dist/js/avalynx-toast.esm.js",
+    "dist/js/avalynx-toast.js"
+  ],
+  "files-dev": [
+    "src/css/avalynx-toast.css",
+    "src/js/avalynx-toast.js"
+  ]
+}
