@@ -3,3 +3,4 @@
 /ai.txt
 /coverage/
 /node_modules/
+.env.local
