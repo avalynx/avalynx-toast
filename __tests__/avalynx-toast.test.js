@@ -411,6 +411,42 @@ describe('AvalynxToast', () => {
         });
     });
 
+    describe('Message sanitization', () => {
+        test('should escape HTML tags in message to prevent XSS', () => {
+            const toast = new AvalynxToast('<img src=x onerror="alert(1)">Hello', 'info');
+            expect(toast.message).toBe('&lt;img src=x onerror="alert(1)"&gt;Hello');
+            const body = document.querySelector('.avalynx-toast-body');
+            expect(body.querySelector('img')).toBeNull();
+            expect(body.innerHTML).toContain('&lt;img src=x');
+        });
+
+        test('should escape script tags in message to prevent XSS', () => {
+            const toast = new AvalynxToast('<script>alert("XSS")</script>', 'info');
+            expect(toast.message).toBe('&lt;script&gt;alert("XSS")&lt;/script&gt;');
+            const body = document.querySelector('.avalynx-toast-body');
+            expect(body.querySelector('script')).toBeNull();
+        });
+
+        test('should escape HTML in headerless message to prevent XSS', () => {
+            const toast = new AvalynxToast('<b>Injected</b>', 'info', { headerless: true });
+            expect(toast.message).toBe('&lt;b&gt;Injected&lt;/b&gt;');
+            const body = document.querySelector('.avalynx-toast-body');
+            expect(body.querySelector('b')).toBeNull();
+        });
+
+        test('should escape ampersands in message', () => {
+            const toast = new AvalynxToast('Plain text & more', 'info');
+            expect(toast.message).toBe('Plain text &amp; more');
+        });
+
+        test('should keep sanitized message intact when re-rendering', () => {
+            const toast = new AvalynxToast('Just text', 'info');
+            const body = document.querySelector('.avalynx-toast-body');
+            expect(body.innerHTML).toContain('Just text');
+            expect(toast.message).toBe('Just text');
+        });
+    });
+
     describe('Bootstrap Toast integration', () => {
         test('should create a new bootstrap.Toast instance', () => {
             new AvalynxToast('Test', 'info');
@@ -522,10 +558,11 @@ describe('AvalynxToast', () => {
             }).not.toThrow();
         });
 
-        test('should handle HTML content in message', () => {
+        test('should escape HTML content in message', () => {
             new AvalynxToast('<strong>Bold</strong> text', 'info');
             const toast = document.querySelector('.avalynx-toast');
-            expect(toast.innerHTML).toContain('<strong>Bold</strong>');
+            expect(toast.innerHTML).toContain('&lt;strong&gt;Bold&lt;/strong&gt; text');
+            expect(toast.innerHTML).not.toContain('<strong>Bold</strong>');
         });
 
         test('should handle very long messages', () => {

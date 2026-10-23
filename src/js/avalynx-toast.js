@@ -10,7 +10,7 @@
  * @repository https://github.com/avalynx/avalynx-toast.git
  * @bugs https://github.com/avalynx/avalynx-toast/issues
  *
- * @param {string} message - The message to display in the toast body (default: '').
+ * @param {string} message - The message to display in the toast body. HTML is escaped to prevent XSS (default: '').
  * @param {string} type - The type of toast. One of 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark' (default: 'info').
  * @param {object} options - An object containing the following keys:
  * @param {string} options.title - The title to display in the toast header (default: '').
@@ -28,7 +28,7 @@
 
 class AvalynxToast {
     constructor(message, type, options = {}) {
-        this.message = message;
+        this.message = this.sanitize(message);
         this.type = type;
         if (options === null || typeof options !== 'object') {
             options = {};
@@ -63,6 +63,12 @@ class AvalynxToast {
         }
 
         this.init();
+    }
+
+    sanitize(str) {
+        const temp = document.createElement('div');
+        temp.textContent = str;
+        return temp.innerHTML;
     }
 
     ensureToastContainer() {
