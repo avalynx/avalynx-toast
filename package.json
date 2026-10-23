@@ -1,7 +1,7 @@
 {
   "name": "avalynx-toast",
   "title": "AvalynxToast",
-  "description": "AvalynxToast is a simple toast system for web applications. Based on Bootstrap >=5.3 without any framework dependencies.",
+  "description": "AvalynxToast is a simple toast notification system for web applications. Based on Bootstrap >=5.3 without any framework dependencies.",
   "version": "1.0.0",
   "license": "MIT",
   "main": "dist/js/avalynx-toast.js",
@@ -19,13 +19,14 @@
     "bootstrap5",
     "component",
     "notification",
-    "popup"
+    "popup",
+    "message"
   ],
   "ignore": [
     "package.json"
   ],
   "author": {
-    "name": "Juergen Schwind an the AvalynxToast Authors",
+    "name": "Juergen Schwind and the AvalynxToast Authors",
     "url": "https://github.com/avalynx/avalynx-toast/graphs/contributors"
   },
   "homepage": "https://github.com/avalynx/",
