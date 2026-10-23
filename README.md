@@ -14,7 +14,7 @@ AvalynxToast is a lightweight, dependency-free toast notification system designe
 
 ## Features
 
-- **Customizable Toasts**: Supports various toast types like primary, secondary, success, danger, warning, info, light, and dark.
+- **Customizable Toasts**: Supports various toast types like default, primary, secondary, success, danger, warning, info, light, and dark.
 - **Optional Title**: Provide an optional title to display in the toast header.
 - **Flexible Positioning**: Choose from predefined positions such as top-left, top-center, top-right, bottom-left, bottom-center, and bottom-right.
 - **Duration Control**: Set the duration for how long the toast should be displayed.
@@ -150,8 +150,8 @@ new AvalynxToast('Your message here', 'success', {
 
 AvalynxToast allows the following options for customization:
 
-- `message`: (string) The message to display in the toast body (default: `''`).
-- `type`: (string) The type of toast. One of (`primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`) (default: `'info'`).
+- `message`: (string) The message to display in the toast body. HTML is escaped to prevent XSS (default: `''`).
+- `type`: (string) The type of toast. One of (`default`, `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`) (default: `'info'`).
 - `options`: An object containing the following keys:
     - `title`: (string) The title to display in the toast header (default: `''`).
     - `subtitle`: (string) A muted text to display in the toast header, right of the title (default: `''`).

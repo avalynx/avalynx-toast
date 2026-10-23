@@ -3,7 +3,7 @@
  *
  * AvalynxToast is a simple toast notification system for web applications. Based on Bootstrap >=5.3 without any framework dependencies.
  *
- * @version 1.0.0
+ * @version 1.0.1
  * @license MIT
  * @author https://github.com/avalynx/avalynx-toast/graphs/contributors
  * @website https://github.com/avalynx/

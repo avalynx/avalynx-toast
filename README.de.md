@@ -12,7 +12,7 @@ AvalynxToast ist ein leichtgewichtiges, eigenständiges Toast-Benachrichtigungss
 
 ## Funktionen
 
-- **Verschiedene Toast-Typen**: `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`.
+- **Verschiedene Toast-Typen**: `default`, `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`.
 - **Optionaler Titel und Untertitel**: Titel fett im Header, dezenter Untertitel rechts daneben (z. B. „vor 4 Minuten").
 - **Optionales Bild**: Avatar oder Logo als kleines Bild im Header.
 - **Body-only Variante**: Ohne Header, nur Body + Schließen-Button (Bootstrap „Custom content"-Pattern).
@@ -150,8 +150,8 @@ new AvalynxToast('Ihre Nachricht', 'success', {
 
 AvalynxToast ermöglicht die folgenden Optionen zur Anpassung:
 
-- `message`: (string) Die anzuzeigende Nachricht im Toast-Body (Standard: `''`).
-- `type`: (string) Der Typ des Toasts. Einer von (`primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`) (Standard: `'info'`).
+- `message`: (string) Die anzuzeigende Nachricht im Toast-Body. HTML wird zum Schutz vor XSS escapet (Standard: `''`).
+- `type`: (string) Der Typ des Toasts. Einer von (`default`, `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `light`, `dark`) (Standard: `'info'`).
 - `options`: Ein Objekt, das die folgenden Schlüssel enthält:
     - `title`: (string) Der im Toast-Header anzuzeigende Titel (Standard: `''`).
     - `subtitle`: (string) Ein dezenter Text im Toast-Header rechts neben dem Titel, z. B. eine Zeitangabe (Standard: `''`).
