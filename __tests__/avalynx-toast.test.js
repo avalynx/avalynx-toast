@@ -92,12 +92,18 @@ describe('AvalynxToast', () => {
         });
 
         test('should accept all valid toast types', () => {
-            const validTypes = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+            const validTypes = ['default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
             validTypes.forEach(type => {
                 document.body.innerHTML = '';
                 const toast = new AvalynxToast('Test', type);
                 expect(toast.type).toBe(type);
             });
+        });
+
+        test('should add default type class for default type', () => {
+            new AvalynxToast('Test', 'default');
+            const toast = document.querySelector('.avalynx-toast');
+            expect(toast.classList.contains('avalynx-toast-default')).toBe(true);
         });
 
         test('should default to "top-right" position for invalid position', () => {

@@ -11,7 +11,7 @@
  * @bugs https://github.com/avalynx/avalynx-toast/issues
  *
  * @param {string} message - The message to display in the toast body. HTML is escaped to prevent XSS (default: '').
- * @param {string} type - The type of toast. One of 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark' (default: 'info').
+ * @param {string} type - The type of toast. One of 'default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark' (default: 'info').
  * @param {object} options - An object containing the following keys:
  * @param {string} options.title - The title to display in the toast header (default: '').
  * @param {string} options.subtitle - A muted text to display in the toast header, right of the title (default: '').
@@ -46,7 +46,7 @@ class AvalynxToast {
             onClose: options.onClose || null,
             ...options
         };
-        if (!['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'].includes(this.type)) {
+        if (!['default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'].includes(this.type)) {
             this.type = 'info';
         }
         if (!['top-left', 'top-center', 'top-right', 'bottom-left', 'bottom-center', 'bottom-right'].includes(this.options.position)) {
